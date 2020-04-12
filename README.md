@@ -1,4 +1,4 @@
-# Projeto que acessa a base de dados da UBS
+# Projeto UBS
 - O projeto retorna Unidades da UBS no raio de 5km a partir da localização informada.
 
 ## Instruções do Projeto
