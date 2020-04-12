@@ -1,9 +1,9 @@
 # Projeto UBS
-- O projeto retorna Unidades da UBS no raio de 5km a partir da localização informada.
+- O projeto retorna Unidades da UBS no raio de 5km a partir da localização informada utilizando a Fórmula de Haversine.
 
 ## Instruções do Projeto
 1. Criar um banco de dados no Postrgres com o nome "desafio".
-2. No banco de dados execulta a Query abaixo.
+2. No banco de dados execulta a Querys abaixo.
 ```sql
   CREATE TABLE unidade(
      id serial NOT NULL
@@ -22,6 +22,21 @@
     ,dsc_medicamentos            VARCHAR(47) NOT NULL,
     CONSTRAINT unidade_pkey PRIMARY KEY (id)
 );
+
+CREATE OR REPLACE FUNCTION public.haversine(
+	latitude1 numeric,
+	longitude1 numeric,
+	latitude2 numeric,
+	longitude2 numeric)
+    RETURNS double precision
+    LANGUAGE 'sql'
+
+    COST 100
+    VOLATILE 
+    
+ AS $BODY$
+	 SELECT 6371 * acos( cos( radians(latitude1) ) * cos( radians( latitude2 ) ) * cos( radians( longitude1 ) - radians(longitude2) ) +    sin( radians(latitude1) ) * sin( radians( latitude2 ) ) )* 1.15 AS distance
+ $BODY$;
 ```
 
 3.Modifar o caminho do arquivo para onde esta seu arquivo e no banco de dados execulta a Query abaixo.
