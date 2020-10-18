@@ -44,7 +44,7 @@ CREATE OR REPLACE FUNCTION public.haversine(
 COPY unidade(vlr_latitude,vlr_longitude,cod_munic,cod_cnes,nom_estab,dsc_endereco,dsc_bairro,dsc_cidade,dsc_telefone,dsc_estrut_fisic_ambiencia,dsc_adap_defic_fisic_idosos,dsc_equipamentos,dsc_medicamentos) 
 FROM 'C:\temp\ubs.csv' DELIMITER ',' CSV HEADER;
 ```
-4. Com o eclipse ou netbens abra o projeto e na pasta src/main/resoucers, abrir o arquivo "application.properties" e modificar a os campos spring.datasource.url,spring.datasource.username e spring.datasource.password
+4. Com o eclipse ou netbeans abra o projeto e na pasta src/main/resoucers, abrir o arquivo "application.properties" e modificar a os campos spring.datasource.url,spring.datasource.username e spring.datasource.password
 para a sua configuração do banco do passo 1;
   
 5. Rode o projeto e no seu navegador abra na url: http://localhost:8080/swagger-ui.html#/  
